@@ -46,8 +46,7 @@ class BaldinofRoadRunnerExtension extends Extension
 
         if ($config['should_reboot_kernel'] || $config['kernel_reboot']['strategy'] === Configuration::KERNEL_REBOOT_STRATEGY_ALWAYS) {
             $container->getDefinition(WorkerConfiguration::class)
-                ->setArgument(0, true)
-                ->setDeprecated('baldinof/roadrunner-bundle', '1.3.0', '');
+                ->setArgument(0, true);
             $container->register(KernelRebootStrategyInterface::class, AlwaysRebootStrategy::class);
         } else {
             $container
